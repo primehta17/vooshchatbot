@@ -10,7 +10,7 @@ function Chat({ sessionId }) {
 
   useEffect(() => {
     // fetch session history when component mounts
-    fetch(`https://vooshchatbot-backend.onrender.com/api/chat/session/${sessionId}/history`)
+    fetch(`http://localhost:7000/api/chat/session/${sessionId}/history`)
       .then(r => r.json())
       .then(data => setMessages(data || []))
       .catch(() => { /* ignore */ });
@@ -36,7 +36,7 @@ function Chat({ sessionId }) {
     }
 
     // build GET url for EventSource (EventSource only supports GET)
-    const url = `https://vooshchatbot-backend.onrender.com/api/chat/stream?sessionId=${sessionId}&message=${encodeURIComponent(text)}`;
+    const url = `http://localhost:7000/api/chat/stream?sessionId=${sessionId}&message=${encodeURIComponent(text)}`;
     const es = new EventSource(url);
     esRef.current = es;
 
@@ -77,7 +77,7 @@ function Chat({ sessionId }) {
   };
 
   const handleReset = async () => {
-    await fetch(`https://vooshchatbot-backend.onrender.com/api/chat/session/${sessionId}/reset`, { method: 'POST' });
+    await fetch(`http://localhost:7000/api/chat/session/${sessionId}/reset`, { method: 'POST' });
     setMessages([]);
   };
 

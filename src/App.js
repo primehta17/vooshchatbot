@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="app">
       <header className="app__header">
-        <h1>RAG Chat — Demo</h1>
+        <h1>RAG Chat - Demo</h1>
       </header>
       <main>
         <Chat sessionId={sessionId} />
