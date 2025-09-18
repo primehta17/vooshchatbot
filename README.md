@@ -1,9 +1,6 @@
 
----
-
 ## Frontend README.md
 
-```markdown
 # RAG-Chat Frontend
 
 > React + Sass UI for RAG-powered chatbot: chat UI, streaming responses, session history & reset.
